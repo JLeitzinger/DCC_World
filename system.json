@@ -17,9 +17,6 @@
   "esmodules": [
     "dcc-world.mjs"
   ],
-  "styles": [
-    "styles/dcc-world.css"
-  ],
   "languages": [
     {
       "lang": "en",
