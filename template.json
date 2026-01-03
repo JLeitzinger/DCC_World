@@ -1,0 +1,295 @@
+{
+  "Actor": {
+    "types": ["character", "npc"],
+    "htmlFields": ["biography"],
+    "character": {
+      "biography": "",
+      "level": 1,
+      "xp": {
+        "value": 0,
+        "max": 1000
+      },
+      "attributes": {
+        "strength": {
+          "value": 10,
+          "mod": 0
+        },
+        "constitution": {
+          "value": 10,
+          "mod": 0
+        },
+        "dexterity": {
+          "value": 10,
+          "mod": 0
+        },
+        "intelligence": {
+          "value": 10,
+          "mod": 0
+        },
+        "wisdom": {
+          "value": 10,
+          "mod": 0
+        },
+        "charisma": {
+          "value": 10,
+          "mod": 0
+        }
+      },
+      "resources": {
+        "hp": {
+          "value": 10,
+          "max": 10,
+          "temp": 0
+        },
+        "stamina": {
+          "value": 10,
+          "max": 10
+        },
+        "mana": {
+          "value": 0,
+          "max": 0
+        }
+      },
+      "details": {
+        "race": "",
+        "class": "",
+        "subclass": "",
+        "background": ""
+      },
+      "traits": {
+        "size": "medium",
+        "speed": 30,
+        "carryingCapacity": {
+          "value": 0,
+          "max": 150
+        }
+      },
+      "combat": {
+        "initiative": {
+          "value": 0,
+          "bonus": 0
+        },
+        "armor": {
+          "value": 10,
+          "type": "none"
+        },
+        "attackBonus": 0,
+        "damageBonus": 0
+      },
+      "crawler": {
+        "reputation": 0,
+        "sponsors": [],
+        "achievements": []
+      }
+    },
+    "npc": {
+      "biography": "",
+      "level": 1,
+      "xp": {
+        "value": 0,
+        "max": 0
+      },
+      "attributes": {
+        "strength": {
+          "value": 10,
+          "mod": 0
+        },
+        "constitution": {
+          "value": 10,
+          "mod": 0
+        },
+        "dexterity": {
+          "value": 10,
+          "mod": 0
+        },
+        "intelligence": {
+          "value": 10,
+          "mod": 0
+        },
+        "wisdom": {
+          "value": 10,
+          "mod": 0
+        },
+        "charisma": {
+          "value": 10,
+          "mod": 0
+        }
+      },
+      "resources": {
+        "hp": {
+          "value": 10,
+          "max": 10,
+          "temp": 0
+        },
+        "stamina": {
+          "value": 10,
+          "max": 10
+        },
+        "mana": {
+          "value": 0,
+          "max": 0
+        }
+      },
+      "details": {
+        "type": "humanoid",
+        "environment": ""
+      },
+      "traits": {
+        "size": "medium",
+        "speed": 30
+      },
+      "combat": {
+        "initiative": {
+          "value": 0,
+          "bonus": 0
+        },
+        "armor": {
+          "value": 10,
+          "type": "none"
+        }
+      }
+    }
+  },
+  "Item": {
+    "types": ["weapon", "armor", "equipment", "consumable", "skill", "achievement", "class", "race"],
+    "htmlFields": ["description"],
+    "weapon": {
+      "description": "",
+      "quantity": 1,
+      "weight": 0,
+      "rarity": "common",
+      "equipped": false,
+      "identified": true,
+      "damage": {
+        "base": "1d6",
+        "type": "physical"
+      },
+      "attackBonus": 0,
+      "damageBonus": 0,
+      "properties": [],
+      "range": {
+        "normal": 5,
+        "long": 5
+      },
+      "requirements": {
+        "level": 1,
+        "attributes": {}
+      }
+    },
+    "armor": {
+      "description": "",
+      "quantity": 1,
+      "weight": 0,
+      "rarity": "common",
+      "equipped": false,
+      "identified": true,
+      "armor": {
+        "value": 0,
+        "type": "light"
+      },
+      "bonuses": {
+        "attributes": {},
+        "resistances": []
+      },
+      "requirements": {
+        "level": 1,
+        "attributes": {}
+      }
+    },
+    "equipment": {
+      "description": "",
+      "quantity": 1,
+      "weight": 0,
+      "rarity": "common",
+      "equipped": false,
+      "identified": true,
+      "slot": "none",
+      "bonuses": {
+        "attributes": {},
+        "resistances": []
+      },
+      "requirements": {
+        "level": 1,
+        "attributes": {}
+      }
+    },
+    "consumable": {
+      "description": "",
+      "quantity": 1,
+      "weight": 0,
+      "rarity": "common",
+      "identified": true,
+      "consumableType": "potion",
+      "uses": {
+        "value": 1,
+        "max": 1,
+        "autoDestroy": true
+      },
+      "effects": []
+    },
+    "skill": {
+      "description": "",
+      "skillType": "active",
+      "level": {
+        "value": 1,
+        "max": 10
+      },
+      "xp": {
+        "value": 0,
+        "max": 100
+      },
+      "cooldown": {
+        "value": 0,
+        "max": 0
+      },
+      "cost": {
+        "stamina": 0,
+        "mana": 0
+      },
+      "damage": {
+        "base": "",
+        "type": "physical"
+      },
+      "requirements": {
+        "level": 1,
+        "attributes": {},
+        "skills": []
+      },
+      "effects": []
+    },
+    "achievement": {
+      "description": "",
+      "category": "combat",
+      "completed": false,
+      "dateCompleted": null,
+      "rewards": {
+        "xp": 0,
+        "reputation": 0,
+        "items": []
+      }
+    },
+    "class": {
+      "description": "",
+      "hitDie": "d8",
+      "primaryAttribute": "strength",
+      "startingHp": 10,
+      "startingStamina": 10,
+      "startingMana": 0,
+      "skills": [],
+      "equipment": []
+    },
+    "race": {
+      "description": "",
+      "size": "medium",
+      "speed": 30,
+      "bonuses": {
+        "attributes": {},
+        "hp": 0,
+        "stamina": 0,
+        "mana": 0
+      },
+      "traits": [],
+      "languages": []
+    }
+  }
+}

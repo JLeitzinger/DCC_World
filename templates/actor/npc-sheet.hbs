@@ -1,0 +1,69 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+
+  {{!-- Sheet Header --}}
+  <header class="sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+
+    <div class="header-fields">
+      <h1 class="charname">
+        <input name="name" type="text" value="{{actor.name}}" placeholder="NPC Name"/>
+      </h1>
+
+      <div class="resource-row">
+        <div class="resource">
+          <label>Level</label>
+          <input type="number" name="system.level" value="{{system.level}}" data-dtype="Number"/>
+        </div>
+      </div>
+
+      <div class="details-row">
+        <div class="detail">
+          <label>Type</label>
+          <input type="text" name="system.details.type" value="{{system.details.type}}"/>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Resources --}}
+    <div class="resources">
+      <div class="resource-box">
+        <label>HP</label>
+        <div class="resource-content">
+          <input type="number" name="system.resources.hp.value" value="{{system.resources.hp.value}}" data-dtype="Number"/>
+          <span>/</span>
+          <input type="number" name="system.resources.hp.max" value="{{system.resources.hp.max}}" data-dtype="Number"/>
+        </div>
+      </div>
+
+      <div class="resource-box">
+        <label>Armor</label>
+        <input type="number" name="system.combat.armor.value" value="{{system.combat.armor.value}}" data-dtype="Number"/>
+      </div>
+    </div>
+
+    {{!-- Attributes --}}
+    <div class="attributes">
+      <h3>Attributes</h3>
+      <ul class="attributes-list">
+        {{#each system.attributes as |attr key|}}
+        <li class="attribute">
+          <label>{{capitalize key}}</label>
+          <input type="number" name="system.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
+          <span class="attribute-mod">{{numberFormat attr.mod}}</span>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+
+    {{!-- Biography --}}
+    <div class="bio">
+      <h3>Notes</h3>
+      {{editor system.biography target="system.biography" button=true owner=owner editable=editable}}
+    </div>
+
+  </section>
+</form>

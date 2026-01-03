@@ -1,0 +1,61 @@
+{
+  "id": "dcc-world",
+  "title": "Dungeon Crawler Carl",
+  "description": "A game system for Foundry VTT based on the Dungeon Crawler Carl book series by Matt Dinniman. Experience the deadly dungeon crawl game show with full RPG mechanics.",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Your Name",
+      "discord": "username"
+    }
+  ],
+  "compatibility": {
+    "minimum": "13.0.0",
+    "verified": "13.0.0",
+    "maximum": "13"
+  },
+  "esmodules": [
+    "dcc-world.mjs"
+  ],
+  "styles": [
+    "styles/dcc-world.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "character": {
+        "htmlFields": ["biography"]
+      },
+      "npc": {
+        "htmlFields": ["biography"]
+      }
+    },
+    "Item": {
+      "weapon": {},
+      "armor": {},
+      "equipment": {},
+      "consumable": {},
+      "skill": {},
+      "achievement": {},
+      "class": {},
+      "race": {}
+    }
+  },
+  "grid": {
+    "distance": 5,
+    "units": "ft"
+  },
+  "primaryTokenAttribute": "hp",
+  "secondaryTokenAttribute": "stamina",
+  "url": "https://github.com/yourusername/dcc-world",
+  "manifest": "https://github.com/yourusername/dcc-world/releases/latest/download/system.json",
+  "download": "https://github.com/yourusername/dcc-world/archive/refs/heads/main.zip",
+  "license": "LICENSE",
+  "readme": "README.md"
+}

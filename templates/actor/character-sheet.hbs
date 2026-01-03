@@ -1,0 +1,164 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+
+  {{!-- Sheet Header --}}
+  <header class="sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+
+    <div class="header-fields">
+      <h1 class="charname">
+        <input name="name" type="text" value="{{actor.name}}" placeholder="Character Name"/>
+      </h1>
+
+      <div class="resource-row">
+        <div class="resource">
+          <label>Level</label>
+          <input type="number" name="system.level" value="{{system.level}}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+          <label>XP</label>
+          <input type="number" name="system.xp.value" value="{{system.xp.value}}" data-dtype="Number"/> / {{system.xp.max}}
+        </div>
+      </div>
+
+      <div class="details-row">
+        <div class="detail">
+          <label>Race</label>
+          <input type="text" name="system.details.race" value="{{system.details.race}}"/>
+        </div>
+        <div class="detail">
+          <label>Class</label>
+          <input type="text" name="system.details.class" value="{{system.details.class}}"/>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="stats">Stats</a>
+    <a class="item" data-tab="skills">Skills</a>
+    <a class="item" data-tab="inventory">Inventory</a>
+    <a class="item" data-tab="bio">Biography</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Stats Tab --}}
+    <div class="tab" data-group="primary" data-tab="stats">
+
+      {{!-- Resources --}}
+      <div class="resources">
+        <div class="resource-box">
+          <label>HP</label>
+          <div class="resource-content">
+            <input type="number" name="system.resources.hp.value" value="{{system.resources.hp.value}}" data-dtype="Number"/>
+            <span>/</span>
+            <input type="number" name="system.resources.hp.max" value="{{system.resources.hp.max}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+        <div class="resource-box">
+          <label>Stamina</label>
+          <div class="resource-content">
+            <input type="number" name="system.resources.stamina.value" value="{{system.resources.stamina.value}}" data-dtype="Number"/>
+            <span>/</span>
+            <input type="number" name="system.resources.stamina.max" value="{{system.resources.stamina.max}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+        <div class="resource-box">
+          <label>Mana</label>
+          <div class="resource-content">
+            <input type="number" name="system.resources.mana.value" value="{{system.resources.mana.value}}" data-dtype="Number"/>
+            <span>/</span>
+            <input type="number" name="system.resources.mana.max" value="{{system.resources.mana.max}}" data-dtype="Number"/>
+          </div>
+        </div>
+      </div>
+
+      {{!-- Attributes --}}
+      <div class="attributes">
+        <h3>Attributes</h3>
+        <ul class="attributes-list">
+          {{#each system.attributes as |attr key|}}
+          <li class="attribute">
+            <label>{{capitalize key}}</label>
+            <input type="number" name="system.attributes.{{key}}.value" value="{{attr.value}}" data-dtype="Number"/>
+            <span class="attribute-mod rollable" data-roll-type="attribute" data-attribute="{{key}}">
+              {{numberFormat attr.mod}}
+            </span>
+          </li>
+          {{/each}}
+        </ul>
+      </div>
+
+      {{!-- Combat Stats --}}
+      <div class="combat-stats">
+        <h3>Combat</h3>
+        <div class="combat-row">
+          <div class="stat">
+            <label>Initiative</label>
+            <span>{{numberFormat system.combat.initiative.value}}</span>
+          </div>
+          <div class="stat">
+            <label>Armor</label>
+            <input type="number" name="system.combat.armor.value" value="{{system.combat.armor.value}}" data-dtype="Number"/>
+          </div>
+        </div>
+      </div>
+
+      {{!-- Crawler Stats --}}
+      <div class="crawler-stats">
+        <h3>Crawler Info</h3>
+        <div class="stat">
+          <label>Reputation</label>
+          <input type="number" name="system.crawler.reputation" value="{{system.crawler.reputation}}" data-dtype="Number"/>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Skills Tab --}}
+    <div class="tab" data-group="primary" data-tab="skills">
+      <h3>Skills</h3>
+      <ol class="item-list">
+        {{#each items.skill as |item|}}
+        <li class="item" data-item-id="{{item.id}}">
+          <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+          <h4>{{item.name}}</h4>
+          <div class="item-controls">
+            <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+          </div>
+        </li>
+        {{/each}}
+      </ol>
+      <button type="button" class="item-create" data-type="skill">Add Skill</button>
+    </div>
+
+    {{!-- Inventory Tab --}}
+    <div class="tab" data-group="primary" data-tab="inventory">
+      <h3>Inventory</h3>
+
+      {{#each items.weapon as |item|}}
+      <li class="item" data-item-id="{{item.id}}">
+        <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+        <h4>{{item.name}}</h4>
+        <div class="item-controls">
+          <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>
+          <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+        </div>
+      </li>
+      {{/each}}
+
+      <button type="button" class="item-create" data-type="weapon">Add Weapon</button>
+    </div>
+
+    {{!-- Biography Tab --}}
+    <div class="tab" data-group="primary" data-tab="bio">
+      <h3>Biography</h3>
+      {{editor system.biography target="system.biography" button=true owner=owner editable=editable}}
+    </div>
+
+  </section>
+</form>
